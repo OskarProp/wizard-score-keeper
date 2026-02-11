@@ -22,9 +22,10 @@ export const GameScreen: React.FC = () => {
                 <div className="flex items-center gap-4">
                     <button
                         onClick={() => setIsLeaderboardOpen(!isLeaderboardOpen)}
-                        className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors lg:hidden"
+                        className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-colors lg:hidden shadow-lg"
+                        aria-label="Toggle Hall of Fame"
                     >
-                        {isLeaderboardOpen ? <X size={20} /> : <Menu size={20} />}
+                        {isLeaderboardOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
                     </button>
                     <div className="flex flex-col">
                         <span className="text-primary font-serif font-bold text-lg leading-tight tracking-tight">
@@ -33,16 +34,16 @@ export const GameScreen: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Round Overview - Prominent Center Display */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-4 bg-black/20 backdrop-blur-md rounded-full px-6 py-2 border border-white/5 shadow-xl">
+                {/* Round Overview - Visible on all devices */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 md:gap-4 bg-black/40 backdrop-blur-md rounded-full px-3 md:px-6 py-1.5 md:py-2 border border-white/10 shadow-xl">
                     <div className="flex flex-col items-center">
-                        <span className="text-[10px] uppercase tracking-widest text-text-muted font-bold">Round</span>
-                        <span className="text-xl font-serif font-bold text-white">{state.currentRound} <span className="text-white/30 text-sm">/ {state.totalRounds}</span></span>
+                        <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-text-muted font-bold">Round</span>
+                        <span className="text-base md:text-xl font-serif font-bold text-white">{state.currentRound} <span className="text-white/30 text-xs md:text-sm">/ {state.totalRounds}</span></span>
                     </div>
-                    <div className="h-8 w-px bg-white/10" />
+                    <div className="h-6 md:h-8 w-px bg-white/10" />
                     <div className="flex flex-col items-center">
-                        <span className="text-[10px] uppercase tracking-widest text-text-muted font-bold">Phase</span>
-                        <span className="text-sm font-bold text-primary">{state.phase === 'BIDDING' ? 'Prophecy' : 'Outcome'}</span>
+                        <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-text-muted font-bold">Phase</span>
+                        <span className="text-xs md:text-sm font-bold text-primary">{state.phase === 'BIDDING' ? 'Prophecy' : 'Outcome'}</span>
                     </div>
                 </div>
 
