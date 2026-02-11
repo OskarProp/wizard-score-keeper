@@ -153,7 +153,7 @@ export const GameScreen: React.FC = () => {
                                 animate={{ x: 0 }}
                                 exit={{ x: '-100%' }}
                                 transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                                className="fixed top-20 bottom-0 left-0 w-[85%] max-w-[360px] glass z-[70] lg:hidden overflow-y-auto rounded-r-3xl"
+                                className="fixed top-0 bottom-0 left-0 w-[85%] max-w-[360px] glass z-[70] lg:hidden overflow-y-auto rounded-r-3xl pt-32"
                             >
                                 <Leaderboard />
                             </motion.aside>
