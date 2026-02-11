@@ -28,10 +28,13 @@ export const GameScreen: React.FC = () => {
                         >
                             {isLeaderboardOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
                         </button>
-                        <div className="flex flex-col">
-                            <span className="text-primary font-serif font-bold text-lg leading-tight tracking-tight">
-                                Wiz<span className="opacity-50">Score</span>
-                            </span>
+                        <div className="flex items-center gap-3">
+                            <img src="/logo.png" alt="WizScore" className="w-8 h-8" />
+                            <div className="flex flex-col">
+                                <span className="text-primary font-serif font-bold text-lg leading-tight tracking-tight">
+                                    Wiz<span className="opacity-50">Score</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
 

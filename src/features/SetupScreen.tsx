@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, Wand2, Users } from 'lucide-react';
+import { Plus, Minus, Users } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -46,8 +46,9 @@ export const SetupScreen: React.FC = () => {
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 blur-3xl rounded-full" />
 
                 <div className="flex flex-col items-center mb-10 text-center h-[180px] justify-center">
-                    <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 ring-1 ring-primary/30">
-                        <Wand2 className="text-primary w-8 h-8" />
+                    {/* Logo */}
+                    <div className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center mb-6 ring-2 ring-primary/20 shadow-[0_0_30px_rgba(242,191,78,0.2)]">
+                        <img src="/logo.png" alt="WizScore Logo" className="w-14 h-14" />
                     </div>
                     <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-3">
                         Wiz<span className="text-primary">Score</span>
