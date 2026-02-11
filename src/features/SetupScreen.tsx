@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Wand2, Users } from 'lucide-react';
-import { PrivacySection } from '../components/PrivacySection';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -37,7 +36,7 @@ export const SetupScreen: React.FC = () => {
     const isReady = players.every(p => p.trim() !== '');
 
     return (
-        <div className="flex flex-col items-center justify-start md:justify-center min-h-screen px-6 py-12 overflow-y-auto">
+        <div className="flex flex-col items-center justify-start md:justify-center min-h-screen px-6 py-12 pb-24 overflow-y-auto">
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -151,8 +150,6 @@ export const SetupScreen: React.FC = () => {
                 >
                     Start Journey
                 </motion.button>
-
-                <PrivacySection />
             </motion.div>
         </div>
     );

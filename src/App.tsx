@@ -2,6 +2,7 @@ import { useGame } from './context/GameContext';
 import { SetupScreen } from './features/SetupScreen';
 import { GameScreen } from './features/GameScreen';
 import { CookieBanner } from './components/CookieBanner';
+import { Footer } from './components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       </AnimatePresence>
 
       <CookieBanner />
+      <Footer />
     </div>
   )
 }
