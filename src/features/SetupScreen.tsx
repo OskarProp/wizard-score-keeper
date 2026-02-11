@@ -36,19 +36,19 @@ export const SetupScreen: React.FC = () => {
     const isReady = players.every(p => p.trim() !== '');
 
     return (
-        <div className="h-screen overflow-y-auto px-6 py-12 pb-24 flex flex-col items-center justify-start md:justify-center">
+        <div className="min-h-screen overflow-y-auto px-6 py-12 pb-32 flex flex-col items-center justify-start md:justify-center">
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="w-full max-w-3xl glass rounded-[2.5rem] p-8 md:p-12 overflow-hidden relative"
+                className="w-full max-w-3xl glass rounded-[2.5rem] p-8 md:p-12 relative"
             >
                 {/* Decorative glow */}
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 blur-3xl rounded-full" />
 
                 <div className="flex flex-col items-center mb-10 text-center h-[180px] justify-center">
                     {/* Logo */}
-                    <div className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center mb-6 ring-2 ring-primary/20 shadow-[0_0_30px_rgba(242,191,78,0.2)]">
-                        <img src="/logo.png" alt="WizScore Logo" className="w-14 h-14" />
+                    <div className="mb-6">
+                        <img src="/logo.png" alt="WizScore Logo" className="w-24 h-24 drop-shadow-[0_0_15px_rgba(242,191,78,0.4)]" />
                     </div>
                     <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-3">
                         Wiz<span className="text-primary">Score</span>
