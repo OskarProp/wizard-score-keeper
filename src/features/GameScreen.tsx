@@ -18,24 +18,65 @@ export const GameScreen: React.FC = () => {
     return (
         <div className="flex flex-col h-screen overflow-hidden">
             {/* Premium Header */}
-            <header className="relative z-50 h-20 px-6 flex items-center justify-between glass border-b-0">
-                <div className="flex items-center gap-4">
-                    <button
-                        onClick={() => setIsLeaderboardOpen(!isLeaderboardOpen)}
-                        className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-colors lg:hidden shadow-lg"
-                        aria-label="Toggle Hall of Fame"
-                    >
-                        {isLeaderboardOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
-                    </button>
-                    <div className="flex flex-col">
-                        <span className="text-primary font-serif font-bold text-lg leading-tight tracking-tight">
-                            Wizard <span className="opacity-50">Arcane</span>
-                        </span>
+            <header className="relative z-50 px-6 py-3 flex flex-col md:flex-row md:h-20 md:py-0 items-center justify-between glass border-b-0 gap-3 md:gap-0">
+                <div className="flex items-center justify-between w-full md:w-auto gap-4">
+                    <div className="flex items-center gap-4">
+                        <button
+                            onClick={() => setIsLeaderboardOpen(!isLeaderboardOpen)}
+                            className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-colors lg:hidden shadow-lg"
+                            aria-label="Toggle Hall of Fame"
+                        >
+                            {isLeaderboardOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
+                        </button>
+                        <div className="flex flex-col">
+                            <span className="text-primary font-serif font-bold text-lg leading-tight tracking-tight">
+                                Wizard <span className="opacity-50">Arcane</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* End Game button on mobile - right side */}
+                    <div className="md:hidden">
+                        <AnimatePresence>
+                            {state.phase !== 'GAME_OVER' && (
+                                showConfirm ? (
+                                    <motion.div
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: 20 }}
+                                        className="flex items-center gap-2 bg-error/10 border border-error/20 p-1 rounded-xl"
+                                    >
+                                        <button
+                                            onClick={handleEndGame}
+                                            className="px-3 py-1.5 rounded-lg bg-error text-white text-[10px] font-bold uppercase tracking-wider hover:bg-error/80 transition-colors"
+                                        >
+                                            Confirm
+                                        </button>
+                                        <button
+                                            onClick={() => setShowConfirm(false)}
+                                            className="px-3 py-1.5 rounded-lg bg-white/5 text-text-muted text-[10px] font-bold uppercase tracking-wider hover:bg-white/10 transition-colors"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </motion.div>
+                                ) : (
+                                    <motion.button
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        onClick={() => setShowConfirm(true)}
+                                        className="w-10 h-10 rounded-xl bg-white/5 hover:bg-error/20 hover:text-error transition-all flex items-center justify-center"
+                                    >
+                                        <LogOut size={16} />
+                                    </motion.button>
+                                )
+                            )}
+                        </AnimatePresence>
                     </div>
                 </div>
 
-                {/* Round Overview - Visible on all devices */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 md:gap-4 bg-black/40 backdrop-blur-md rounded-full px-3 md:px-6 py-1.5 md:py-2 border border-white/10 shadow-xl">
+                {/* Round Overview - Centered on mobile, absolute center on desktop */}
+                <div className="flex md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 items-center gap-2 md:gap-4 bg-black/40 backdrop-blur-md rounded-full px-3 md:px-6 py-1.5 md:py-2 border border-white/10 shadow-xl">
                     <div className="flex flex-col items-center">
                         <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-text-muted font-bold">Round</span>
                         <span className="text-base md:text-xl font-serif font-bold text-white">{state.currentRound} <span className="text-white/30 text-xs md:text-sm">/ {state.totalRounds}</span></span>
@@ -47,7 +88,8 @@ export const GameScreen: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-3">
+                {/* End Game button on desktop - right side */}
+                <div className="hidden md:flex items-center gap-3">
                     <AnimatePresence>
                         {state.phase !== 'GAME_OVER' && (
                             <div className="flex items-center gap-2">
