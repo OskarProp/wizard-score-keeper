@@ -8,18 +8,42 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
             xmlns="http://www.w3.org/2000/svg"
             className={className}
         >
-            {/* Wizard Hat Body */}
+            <defs>
+                <linearGradient id="crystalGradient" x1="256" y1="100" x2="256" y2="400" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#F2BF4E" stopOpacity="0.2" />
+                    <stop offset="100%" stopColor="#F2BF4E" stopOpacity="0.05" />
+                </linearGradient>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="15" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+            </defs>
+
+            {/* Crystal Ball Orb */}
+            <circle cx="256" cy="220" r="140" fill="url(#crystalGradient)" stroke="#F2BF4E" strokeWidth="12" />
+
+            {/* Inner Magical Essence (Swirl/W shape) */}
             <path
-                d="M118.7 406.8C75 423.8 24.6 422 13.9 417.8C4.5 414.2 0 403.4 0 395.7C0 380 9 347.1 27 325.7C45 304.3 94.5 282.9 148.5 282.9H153C161.4 207.1 198.8 136.7 261.4 92.5C324.6 47.9 406.7 30.6 480.9 45.4C493 47.8 502.9 57.6 505.4 69.8C508.8 86.6 496.1 102.3 479 102.3C469.7 102.3 460.8 98.7 453.9 92.4C436.4 76.4 411.7 73.1 391.2 83.3C370.7 93.5 357.7 115.6 357.7 138.5V146.3C357.7 217.2 320.7 283 260.6 320.1C246.4 328.8 231.1 335.8 215.1 341.1V368.5C401.5 391.6 466.5 419.6 472.1 422.3C480.1 426.1 485.4 434 485.4 442.9C485.4 457.1 471.2 467.2 457.5 463.8C452.1 462.5 407.7 450.9 337.8 444C268 437.1 169.5 433 118.7 406.8Z"
-                fill="#F2BF4E"
+                d="M190 220C190 220 210 260 230 220C240 200 245 200 256 240C267 200 272 200 282 220C302 260 322 220 322 220"
+                stroke="#F2BF4E"
+                strokeWidth="16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="animate-pulse"
             />
-            {/* Tally Marks */}
-            <g transform="rotate(-10 256 256)">
-                <path d="M220 280L220 200" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
-                <path d="M250 280L250 200" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
-                <path d="M280 280L280 200" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
-                <path d="M310 280L310 200" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
-                <path d="M200 220L330 260" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
+
+            {/* Reflections on the ball */}
+            <path d="M180 160C195 140 220 130 256 130" stroke="white" strokeWidth="8" strokeLinecap="round" opacity="0.6" />
+
+            {/* Stand */}
+            <path d="M176 340L160 416H352L336 340" stroke="#F2BF4E" strokeWidth="16" strokeLinejoin="round" fill="none" />
+            <path d="M140 416H372" stroke="#F2BF4E" strokeWidth="16" strokeLinecap="round" />
+
+            {/* Sparkles */}
+            <g className="text-[#F2BF4E]">
+                <path d="M380 120L390 100L400 120L420 130L400 140L390 160L380 140L360 130L380 120Z" fill="currentColor" opacity="0.8" />
+                <path d="M120 300L125 290L130 300L140 305L130 310L125 320L120 310L110 305L120 300Z" fill="currentColor" opacity="0.6" />
+                <path d="M420 320L424 312L428 320L436 324L428 328L424 336L420 328L412 324L420 320Z" fill="currentColor" opacity="0.6" />
             </g>
         </svg>
     );
