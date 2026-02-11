@@ -1,6 +1,4 @@
-# Wizard Arcane 🔮
-
-A premium, atmospheric scorekeeper for the Wizard card game.
+# WizScore - Wizard Card Game Scorekeeper
 
 ## Features
 

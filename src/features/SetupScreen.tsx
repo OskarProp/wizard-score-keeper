@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Wand2, Users } from 'lucide-react';
+import { PrivacySection } from '../components/PrivacySection';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -50,7 +51,7 @@ export const SetupScreen: React.FC = () => {
                         <Wand2 className="text-primary w-8 h-8" />
                     </div>
                     <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-3">
-                        Wizard <span className="text-primary">Arcane</span>
+                        Wiz<span className="text-primary">Score</span>
                     </h1>
                     <p className="text-text-muted text-lg max-w-sm">
                         Enter the names of the seekers who dare to challenge fate.
@@ -150,6 +151,8 @@ export const SetupScreen: React.FC = () => {
                 >
                     Start Journey
                 </motion.button>
+
+                <PrivacySection />
             </motion.div>
         </div>
     );

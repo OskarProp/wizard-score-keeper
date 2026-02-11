@@ -30,7 +30,7 @@ export const GameScreen: React.FC = () => {
                         </button>
                         <div className="flex flex-col">
                             <span className="text-primary font-serif font-bold text-lg leading-tight tracking-tight">
-                                Wizard <span className="opacity-50">Arcane</span>
+                                Wiz<span className="opacity-50">Score</span>
                             </span>
                         </div>
                     </div>
