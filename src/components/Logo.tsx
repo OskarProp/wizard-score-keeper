@@ -8,18 +8,19 @@ export const Logo: React.FC<{ className?: string }> = ({ className }) => {
             xmlns="http://www.w3.org/2000/svg"
             className={className}
         >
-            {/* Wizard Hat Base */}
+            {/* Wizard Hat Body */}
             <path
-                d="M496 384H416C416 384 416 368 416 352C416 228.3 320 128 208 128C194.7 128 181.8 129.5 169.4 132.3C182.8 91.4 221.7 64 263.6 64H272C285.3 64 296 53.3 296 40C296 26.7 285.3 16 272 16H263.6C203.9 16 149.3 53.9 127.3 109C55.4 126.3 1.9 193.3 8.3 268.3C11.1 302.3 28.1 332.9 54.1 355.6C34.8 360.8 16 384 16 384C16 384 16 400 16 416C16 460.2 51.8 496 96 496H448C474.5 496 496 474.5 496 448V384Z"
+                d="M118.7 406.8C75 423.8 24.6 422 13.9 417.8C4.5 414.2 0 403.4 0 395.7C0 380 9 347.1 27 325.7C45 304.3 94.5 282.9 148.5 282.9H153C161.4 207.1 198.8 136.7 261.4 92.5C324.6 47.9 406.7 30.6 480.9 45.4C493 47.8 502.9 57.6 505.4 69.8C508.8 86.6 496.1 102.3 479 102.3C469.7 102.3 460.8 98.7 453.9 92.4C436.4 76.4 411.7 73.1 391.2 83.3C370.7 93.5 357.7 115.6 357.7 138.5V146.3C357.7 217.2 320.7 283 260.6 320.1C246.4 328.8 231.1 335.8 215.1 341.1V368.5C401.5 391.6 466.5 419.6 472.1 422.3C480.1 426.1 485.4 434 485.4 442.9C485.4 457.1 471.2 467.2 457.5 463.8C452.1 462.5 407.7 450.9 337.8 444C268 437.1 169.5 433 118.7 406.8Z"
                 fill="#F2BF4E"
             />
-            {/* Tally Marks (Stylized on the hat) */}
-            <path d="M160 220L200 180" stroke="#1c1c1e" strokeWidth="24" strokeLinecap="round" />
-            <path d="M190 220L230 180" stroke="#1c1c1e" strokeWidth="24" strokeLinecap="round" />
-            <path d="M220 220L260 180" stroke="#1c1c1e" strokeWidth="24" strokeLinecap="round" />
-            <path d="M250 220L290 180" stroke="#1c1c1e" strokeWidth="24" strokeLinecap="round" />
-            {/* Cross stroke */}
-            <path d="M160 200L290 200" stroke="#1c1c1e" strokeWidth="24" strokeLinecap="round" />
+            {/* Tally Marks */}
+            <g transform="rotate(-10 256 256)">
+                <path d="M220 280L220 200" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
+                <path d="M250 280L250 200" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
+                <path d="M280 280L280 200" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
+                <path d="M310 280L310 200" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
+                <path d="M200 220L330 260" stroke="#1c1c1e" strokeWidth="20" strokeLinecap="round" />
+            </g>
         </svg>
     );
 };

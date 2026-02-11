@@ -1,15 +1,22 @@
-# WizScore - Wizard Card Game Scorekeeper
+# WizScore 🧙‍♂️
+
+The ultimate scorekeeper for the Wizard card game. Experience magic with every hand.
+**Live at:** [wizscore.org](https://wizscore.org)
 
 ## Features
 
--   **Atmospheric UI**: Deep, rich gradients and glassmorphism effects.
--   **Smooth Animations**: Context-aware transitions and micro-interactions.
+-   **Atmospheric UI**: Deep, rich gradients, glassmorphism, and a custom SVG logo.
+-   **Mobile-First Design**:
+    -   Swipe-to-delete players.
+    -   Fixed header with scrollable lists for easy navigation.
+    -   Large touch targets for bidding and result entry.
 -   **Smart Logic**:
-    -   Validates "Total Bids ≠ Round Number" rule (Prophecy phase).
-    -   Validates "Total Tricks = Round Number" rule (Outcome phase).
-    -   Hides live scores during result entry for maximum suspense.
--   **Premium Inputs**: Large, easy-to-tap touch targets for mobile play.
--   **Interactive Setup**: Swipe-to-delete players.
+    -   **Prophecy Phase**: Validates that bids do not equal the round number.
+    -   **Outcome Phase**: Ensures total tricks match the round number.
+    -   **Suspense Mode**: Hides live scores during result entry.
+-   **Privacy & Legal**:
+    -   **Zero Tracking**: All game data is stored locally on your device.
+    -   **GDPR Compliant**: Includes Impressum and Privacy Policy.
 
 ## Tech Stack
 
