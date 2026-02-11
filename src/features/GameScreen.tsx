@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { Leaderboard } from './Leaderboard';
+import { Logo } from '../components/Logo';
 import { ActiveRound } from './ActiveRound';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, LogOut } from 'lucide-react';
@@ -29,7 +30,7 @@ export const GameScreen: React.FC = () => {
                             {isLeaderboardOpen ? <X size={20} className="text-primary" /> : <Menu size={20} className="text-primary" />}
                         </button>
                         <div className="flex items-center gap-3">
-                            <img src="/logo.png" alt="WizScore" className="w-8 h-8" />
+                            <Logo className="w-8 h-8 text-primary drop-shadow-[0_0_8px_rgba(242,191,78,0.5)]" />
                             <div className="flex flex-col">
                                 <span className="text-primary font-serif font-bold text-lg leading-tight tracking-tight">
                                     Wiz<span className="opacity-50">Score</span>

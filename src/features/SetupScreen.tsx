@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Users } from 'lucide-react';
+import { Logo } from '../components/Logo';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -36,7 +37,7 @@ export const SetupScreen: React.FC = () => {
     const isReady = players.every(p => p.trim() !== '');
 
     return (
-        <div className="min-h-screen overflow-y-auto px-6 py-12 pb-32 flex flex-col items-center justify-start md:justify-center">
+        <div className="h-[100dvh] overflow-y-auto px-6 py-12 pb-32 flex flex-col items-center justify-start md:justify-center">
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -47,8 +48,9 @@ export const SetupScreen: React.FC = () => {
 
                 <div className="flex flex-col items-center mb-10 text-center h-[180px] justify-center">
                     {/* Logo */}
+                    {/* Logo */}
                     <div className="mb-6">
-                        <img src="/logo.png" alt="WizScore Logo" className="w-24 h-24 drop-shadow-[0_0_15px_rgba(242,191,78,0.4)]" />
+                        <Logo className="w-32 h-32 drop-shadow-[0_0_20px_rgba(242,191,78,0.6)]" />
                     </div>
                     <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-3">
                         Wiz<span className="text-primary">Score</span>
