@@ -155,9 +155,10 @@ export const BiddingForm: React.FC = () => {
 
 
                         <div className="relative h-8 mt-6 mb-2 flex items-center justify-center">
-                            <AnimatePresence>
-                                {isSumConstraintViolated && hasTriedToSubmit && (
+                            <AnimatePresence mode="wait">
+                                {isSumConstraintViolated && hasTriedToSubmit ? (
                                     <motion.div
+                                        key="error"
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.9 }}
@@ -165,7 +166,20 @@ export const BiddingForm: React.FC = () => {
                                     >
                                         <AlertCircle size={16} strokeWidth={2.5} />
                                         <p className="text-xs font-black uppercase tracking-widest drop-shadow-md">
-                                            Total bids cannot equal the round number
+                                            Total bids cannot equal {state.currentRound}
+                                        </p>
+                                    </motion.div>
+                                ) : (
+                                    <motion.div
+                                        key="info"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        className="absolute inset-0 flex items-center justify-center gap-2 text-primary/60 text-center"
+                                    >
+                                        <Info size={14} />
+                                        <p className="text-[10px] font-bold uppercase tracking-widest">
+                                            Pledged: {currentBidsSum} / {state.currentRound} Tricks
                                         </p>
                                     </motion.div>
                                 )}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BidInput } from '../components/BidInput';
-import { Trophy, ArrowRight, AlertCircle, Zap, Ban } from 'lucide-react';
+import { Trophy, ArrowRight, AlertCircle, Zap, Ban, Info } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -41,10 +41,12 @@ export const ResultsForm: React.FC = () => {
     };
 
     const [showSummary, setShowSummary] = useState(false);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
     const [roundScores, setRoundScores] = useState<Record<string, number>>({});
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setHasSubmitted(true);
         if (allHaveEntered && isValid) {
             const calculatedScores: Record<string, number> = {};
             state.players.forEach(p => {
@@ -64,6 +66,8 @@ export const ResultsForm: React.FC = () => {
 
     const confirmNextRound = () => {
         dispatch({ type: 'SUBMIT_RESULTS', payload: { tricks } });
+        setShowSummary(false);
+        setHasSubmitted(false);
     };
 
     return (
@@ -150,12 +154,12 @@ export const ResultsForm: React.FC = () => {
                     <div className="pt-6">
                         <button
                             type="submit"
-                            disabled={!allHaveEntered || !isValid}
+                            disabled={!allHaveEntered}
                             className={cn(
                                 "w-full py-5 rounded-2xl font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-3",
                                 allHaveEntered && isValid
                                     ? "bg-primary text-charcoal-900 shadow-[0_4px_20px_rgba(242,191,78,0.3)] hover:brightness-110 active:scale-[0.98]"
-                                    : "bg-white/5 text-white/20 border border-white/5 cursor-not-allowed"
+                                    : "bg-white/5 text-white/20 border border-white/5"
                             )}
                         >
                             Next Cycle
@@ -165,21 +169,32 @@ export const ResultsForm: React.FC = () => {
 
                     </div>
 
-                    <div className="relative h-6 mt-4">
-                    </div>
-
-                    <div className="relative h-6 mt-4">
-                        <AnimatePresence>
-                            {!isValid && (
+                    <div className="relative h-8 mt-4 flex items-center justify-center">
+                        <AnimatePresence mode="wait">
+                            {!isValid && hasSubmitted ? (
                                 <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    className="absolute top-0 left-0 right-0 flex items-center justify-center gap-2 text-error text-center"
+                                    key="error"
+                                    initial={{ opacity: 0, y: -5 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: 5 }}
+                                    className="flex items-center justify-center gap-2 text-error text-center"
                                 >
                                     <AlertCircle size={16} strokeWidth={2.5} />
                                     <p className="text-xs font-black uppercase tracking-widest drop-shadow-md">
-                                        Total tricks must equal the round number
+                                        Total tricks must equal {state.currentRound}
+                                    </p>
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="info"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    className="flex items-center justify-center gap-2 text-primary/60 text-center"
+                                >
+                                    <Info size={14} />
+                                    <p className="text-[10px] font-bold uppercase tracking-widest">
+                                        Recorded: {currentTricksSum} / {state.currentRound} Tricks
                                     </p>
                                 </motion.div>
                             )}
